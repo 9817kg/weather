@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Weather</title>
+    <title>동네예보</title>
+    <link rel="stylesheet" href="/css/weather.css">
+
+
 </head>
 <body>
-<h1>Get Weather</h1>
-<select id="regionSelect">
-    <option value="1">의정부1동</option>
-    <option value="2">의정부2동</option>
-    <option value="3">호원1동</option>
-    <option value="4">호원2동</option>
-    <option value="5">장암동</option>
-    <option value="6">신곡1동</option>
-    <option value="7">신곡 2동</option>
-    <option value="8">송산1동</option>
-    <option value="9">송산2동</option>
-    <option value="10">송산3동</option>
-    <option value="11">자금동</option>
-    <option value="12">가능동</option>
-    <option value="13">흥선동</option>
-    <option value="14">녹양동</option>
-    <!-- 다른 지역 옵션 추가 -->
-</select>
-
-
-<button id="getWeatherButton">날씨 보기</button>
-<div id="weatherInfoText">
+<img id="backgroundImage" src="/img/back.jpg" alt="배경 이미지">
+<div id="container">
 
 
 
+    <h1>동네예보</h1>
+    <select id="regionSelect">
+        <option value="1">의정부1동</option>
+        <option value="2">의정부2동</option>
+        <option value="3">호원1동</option>
+        <option value="4">호원2동</option>
+        <option value="5">장암동</option>
+        <option value="6">신곡1동</option>
+        <option value="7">신곡 2동</option>
+        <option value="8">송산1동</option>
+        <option value="9">송산2동</option>
+        <option value="10">송산3동</option>
+        <option value="11">자금동</option>
+        <option value="12">가능동</option>
+        <option value="13">흥선동</option>
+        <option value="14">녹양동</option>
+    </select>
+    <button id="getWeatherButton">날씨 보기</button>
+    <div id="weatherInfoText"></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
         $("#getWeatherButton").click(function() {
-            let selectedRegion = $("#regionSelect option:selected").val()
+            let selectedRegion = $("#regionSelect option:selected").val();
             let selectedRegionName = $("#regionSelect option:selected").text();
 
             $.ajax({
@@ -50,15 +53,11 @@
                     if (weather == null) {
                         $("#weatherInfoText").text("An error occurred while loading the weather.");
                     } else {
-
                         var temp = weather.temp;
                         var humid = weather.humid;
                         var rainAmount = weather.rainAmount;
-                        var weatherInfoText = selectedRegionName+ '의 온도는 ' + temp + '℃ 이며, 습도는 ' + humid + '% 이고 강우량은 ' + rainAmount + 'mm 입니다';
+                        var weatherInfoText = selectedRegionName + '의 온도는 ' + temp + '℃ 이며, 습도는 ' + humid + '% 이고 강우량은 ' + rainAmount + 'mm 입니다';
                         $("#weatherInfoText").html(weatherInfoText);
-
-
-
                     }
                 },
                 error: function (xhr) {

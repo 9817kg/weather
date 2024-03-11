@@ -1,0 +1,68 @@
+
+h1 {
+    color: white; /* H1 태그 글씨 색상 변경 */
+}
+
+#backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* 배경 이미지를 컨테이너 뒤로 이동시킵니다. */
+
+}
+
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+#weatherInfoText {
+    margin-top: 20px;
+    font-size: 18px;
+    color: white; /* 날씨 정보 글씨 색상 변경 */
+}
+
+
+
+#container {
+    text-align: center;
+    padding: 40px; /* increase padding for bigger box */
+    border-radius: 10px;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+select, button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+#weatherInfoText {
+    margin-top: 20px;
+    font-weight: bold; /* make selectedRegionName bold */
+    white-space: pre-line; /* to preserve line breaks in weatherInfoText */
+}
