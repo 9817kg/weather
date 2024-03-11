@@ -1,9 +1,7 @@
 ## 단기 예보 API
 
-##### Languge : Kotlin / HTML / CSS / JavaScript 
+![image](https://github.com/9817kg/weather/assets/137484097/c3d087c6-0065-47ae-899c-178c7aa7a75c)
 
-##### tool : Spring Boot / Ajax / JPA 
-##### IDE : Intelij
 
 ![image](https://github.com/9817kg/weather/assets/137484097/623a3884-5f17-4dc2-81df-7fd07e3dbb73)
 
