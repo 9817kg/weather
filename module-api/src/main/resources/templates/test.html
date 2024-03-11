@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<button id="button" type="button">DB Insert</button>
+
+<script>
+    $(document).ready(function() {
+        $("#button").click(function() {
+            $.ajax({
+                type: "POST",
+                url: "/region",
+                success: function(response) {
+                    alert("DB Insert 성공!");
+                },
+                error: function(xhr, status, error) {
+                    alert("DB Insert 실패: " + error);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
