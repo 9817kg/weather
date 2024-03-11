@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping
 class GetWeatherController {
 
     @GetMapping("/weather")
-
     fun getWeather():String{
         return "weather"
 
     }
+
+
 }

@@ -37,7 +37,7 @@ subprojects {
 		implementation("org.springframework.boot:spring-boot-starter-web")
 		api("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-		developmentOnly("org.springframework.boot:spring-boot-devtools")
+		api("org.springframework.boot:spring-boot-devtools")
 		api ("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.12.5")
 		api ("javax.xml.bind:jaxb-api:2.3.1")
 		// kotlin

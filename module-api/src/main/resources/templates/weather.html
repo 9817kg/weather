@@ -53,10 +53,15 @@
                     if (weather == null) {
                         $("#weatherInfoText").text("An error occurred while loading the weather.");
                     } else {
+                        var updateTime = weather.lastUpdateTime
                         var temp = weather.temp;
                         var humid = weather.humid;
                         var rainAmount = weather.rainAmount;
-                        var weatherInfoText = selectedRegionName + '의 온도는 ' + temp + '℃ 이며, 습도는 ' + humid + '% 이고 강우량은 ' + rainAmount + 'mm 입니다';
+                        var weatherInfoText = selectedRegionName
+                            + '의 온도는 ' + temp
+                            + '℃ 이며, 습도는 ' + humid
+                            + '% 이고 강우량은 ' + rainAmount + 'mm 입니다. ' +
+                            '(기준 시간 - '+ updateTime + '시)';
                         $("#weatherInfoText").html(weatherInfoText);
                     }
                 },
@@ -65,6 +70,18 @@
                 }
             });
         });
+    });
+
+
+    $.ajax({
+        type: "POST",
+        url: "/createData.do",
+        success: function(response) {
+            console.log("최신 데이터 업데이트 성공");
+        },
+        error: function(xhr, status, error) {
+            console.log("최신 데이터 업데이트 실패");
+        }
     });
 </script>
 </body>

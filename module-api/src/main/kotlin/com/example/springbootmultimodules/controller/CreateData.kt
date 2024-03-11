@@ -18,13 +18,16 @@ import java.net.URI
 import java.nio.file.Path
 import java.nio.file.Paths
 import org.springframework.transaction.annotation.Transactional
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RequestMethod
 
 @RestController
+@RequestMapping(value = ["/createData.do"], method = [RequestMethod.POST])
 class CreateData @Autowired constructor(private val weatherService: WeatherService) {
     @Value("\${resources.location}")
     private lateinit var resourceLocation: String
 
-    @PostMapping("/region")
+    @PostMapping
     @Transactional
     fun resetRegionList(): ResponseEntity<String> {
         val fileLocation = "$resourceLocation/regionList.csv"
