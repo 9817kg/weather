@@ -34,3 +34,7 @@
 
 1. 프론트 단에서는 Ajax로 GET 요청을 보내 `getRegionWeather` 클래스에서 데이터를 받아옵니다.
 2. `ResponseEntity.ok(ObjectMapper().writeValueAsString(dto))`를 통해 `WeatherResponseDTO`에 저장된 데이터를 프론트 단으로 전송합니다.
+
+
+![image](https://github.com/9817kg/weather/assets/137484097/41b3684a-3fbf-4318-9a7a-20dbc0aee1b5)
+
