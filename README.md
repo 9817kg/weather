@@ -1,6 +1,11 @@
 ## 단기 예보 API
 
-#### Languge : Kotlin / html / css / javaScript 
+#### Languge :
+Kotlin Logo: ![Kotlin Logo](https://upload.wikimedia.org/wikipedia/commons/7/74/Kotlin-logo.svg)
+HTML Logo: ![HTML Logo](https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png)
+CSS Logo: ![CSS Logo](https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg)
+JavaScript Logo: ![JavaScript Logo](https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg)
+
 #### tool : Spring Boot / Ajax / JPA 
 #### IDE : Intelij
 
