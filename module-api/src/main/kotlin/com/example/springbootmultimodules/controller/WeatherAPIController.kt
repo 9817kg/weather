@@ -21,6 +21,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import jakarta.persistence.EntityManager
 import org.slf4j.LoggerFactory
+import org.springframework.http.HttpStatus
 import org.springframework.ui.Model
 import org.springframework.web.client.getForObject
 
@@ -62,6 +63,9 @@ class WeatherAPIController(private val restTemplate: RestTemplate, @Autowired pr
                     .weather(prevWeather)
                     .message("OK").build()
                 return ResponseEntity.ok(ObjectMapper().writeValueAsString(dto))
+            }else {
+                // 만약 db에 데이터가 없다면  HTTP status 204 Return
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).build()
             }
         }
 
@@ -105,6 +109,7 @@ class WeatherAPIController(private val restTemplate: RestTemplate, @Autowired pr
                 .weather(weather)
                 .message("OK").build()
             return ResponseEntity.ok(ObjectMapper().writeValueAsString(dto))
+
 
         } catch (e: IOException) {
             val dto = WeatherResponseDTO.Builder()

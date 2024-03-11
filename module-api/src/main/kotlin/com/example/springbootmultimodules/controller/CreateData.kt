@@ -33,6 +33,7 @@ class CreateData @Autowired constructor(private val weatherService: WeatherServi
 
         return try {
             BufferedReader(InputStreamReader(UrlResource(uri).inputStream)).use { br ->
+                //use 함수는 BufferedReader를 생성하여 UrlResource(uri)에서 얻은 inputStream을 읽어오고, 읽은 후에 자원을 안전하게 닫아줍니다
                 // Skip header
                 br.readLine()
 
