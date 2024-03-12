@@ -11,13 +11,7 @@ class WeatherService(private val weatherRepository: WeatherRepository) {
     fun findById(id: Long): Region? {
         return weatherRepository.findById(id).orElse(null)
     }
-
     fun save(region: Region): Region {
         return weatherRepository.save(region)
     }
-
-
-
-
-
 }
