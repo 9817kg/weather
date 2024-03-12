@@ -29,7 +29,7 @@ import org.springframework.web.client.getForObject
 @RequestMapping("/api/do")
 class WeatherAPIController(
     private val restTemplate: RestTemplate,
-     private val weatherService: WeatherService // WeatherService 주입
+     @Autowired private val weatherService: WeatherService // WeatherService 주입
 ) {
 
     private val log = LoggerFactory.getLogger(WeatherAPIController::class.java)
@@ -41,7 +41,7 @@ class WeatherAPIController(
     @Transactional
     fun getRegionWeather(@RequestParam regionId: Long, model: Model): ResponseEntity<String> {
         val region = weatherService.findById(regionId) // WeatherService로부터 Region 엔티티 조회
-
+        // 날짜, 시간 설정
         val now = LocalDateTime.now()
         val yyyyMMdd = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"))
         var hour = now.hour
@@ -50,7 +50,7 @@ class WeatherAPIController(
             hour -= 1
         }
         val hourStr = "${hour}00"
-
+        // nx ny 좌표 가져오기
         val nx = region?.nx.toString()
         val ny = region?.ny.toString()
         val currentChangeTime = now.format(DateTimeFormatter.ofPattern("yy.MM.dd ")) + hour
