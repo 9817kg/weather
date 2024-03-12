@@ -4,7 +4,6 @@ package com.example.springbootmultimodules.controller
 
 import com.example.springbootmultimodules.entity.Region
 import com.example.springbootmultimodules.service.WeatherService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.UrlResource
 import org.springframework.http.HttpStatus
@@ -20,10 +19,10 @@ import java.nio.file.Paths
 import org.springframework.transaction.annotation.Transactional
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
-
+// csv 파일 읽어서 uri 생성할 데이터 insert 하는 컨트롤러
 @RestController
 @RequestMapping(value = ["/createData.do"], method = [RequestMethod.POST])
-class CreateData constructor(private val weatherService: WeatherService) {
+class CreateDataController internal constructor(private val weatherService: WeatherService) {
     @Value("\${resources.location}")
     private lateinit var resourceLocation: String
 
@@ -36,8 +35,7 @@ class CreateData constructor(private val weatherService: WeatherService) {
 
         return try {
             BufferedReader(InputStreamReader(UrlResource(uri).inputStream)).use { br ->
-                //use 함수는 BufferedReader를 생성하여 UrlResource(uri)에서 얻은 inputStream을 읽어오고, 읽은 후에 자원을 안전하게 닫아줍니다
-                // Skip header
+
                 br.readLine()
 
                 var line: String? = br.readLine()
