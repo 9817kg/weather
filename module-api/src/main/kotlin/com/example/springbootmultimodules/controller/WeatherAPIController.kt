@@ -29,7 +29,7 @@ import org.springframework.web.client.getForObject
 @RequestMapping("/api/do")
 class WeatherAPIController(
     private val restTemplate: RestTemplate,
-    @Autowired private val weatherService: WeatherService // WeatherService 주입
+     private val weatherService: WeatherService // WeatherService 주입
 ) {
 
     private val log = LoggerFactory.getLogger(WeatherAPIController::class.java)
@@ -70,7 +70,7 @@ class WeatherAPIController(
         }
 
         log.info("Sending API request >>> Region: $region, Date: $yyyyMMdd, Time: $hourStr")
-        model.addAttribute("name", region?.childRegion)
+
         try {
             val url =
                 "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst" +

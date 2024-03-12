@@ -11,9 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 class WeatherService(private val weatherRepository: WeatherRepository) {
 
-    fun findAll(pageable: Pageable): Page<Region> {
-        return weatherRepository.findAll(pageable)
-    }
+
 
     fun findById(id: Long): Region? {
         return weatherRepository.findById(id).orElse(null)
@@ -23,13 +21,8 @@ class WeatherService(private val weatherRepository: WeatherRepository) {
         return weatherRepository.save(region)
     }
 
-    fun deleteById(id: Long) {
-        weatherRepository.deleteById(id)
-    }
 
-    fun findChildRegionById(id: Long): String? {
-        val region = weatherRepository.findById(id).orElse(null)
-        return region?.childRegion
-    }
+
+
 
 }

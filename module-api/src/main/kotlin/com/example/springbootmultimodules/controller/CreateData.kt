@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 
 @RestController
 @RequestMapping(value = ["/createData.do"], method = [RequestMethod.POST])
-class CreateData @Autowired constructor(private val weatherService: WeatherService) {
+class CreateData constructor(private val weatherService: WeatherService) {
     @Value("\${resources.location}")
     private lateinit var resourceLocation: String
 
