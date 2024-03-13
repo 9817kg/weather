@@ -23,7 +23,7 @@ class WeatherRequestHandler(
 
     @Transactional
     fun getRegionWeather(region: Region): String {
-        // 비즈니스 로직 수행
+        
         val weather = fetchWeatherFromAPI(region)
         return ObjectMapper().writeValueAsString(WeatherResponseDTO.Builder()
             .weather(weather)
